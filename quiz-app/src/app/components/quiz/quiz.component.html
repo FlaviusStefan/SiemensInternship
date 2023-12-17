@@ -1,1 +1,21 @@
-<p>quiz works!</p>
+<div *ngIf="questions.length > 0">
+    <h2>Question:</h2>
+    <p>{{ currentQuestion?.question }}</p>
+  
+    <h3>Options:</h3>
+    <ul>
+      <li *ngFor="let option of currentQuestion?.options; let i = index">
+        <label>
+          <input type="radio" name="options" [value]="i" (change)="selectAnswer(i)">
+          {{ option }}
+        </label>
+      </li>
+    </ul>
+    
+    <button (click)="getNextQuestion()">Next Question</button>
+  </div>
+  
+  <div *ngIf="questions.length === 0">
+    <p>No more questions!</p>
+  </div>
+  

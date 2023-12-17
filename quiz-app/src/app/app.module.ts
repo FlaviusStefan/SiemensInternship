@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { QuizComponent } from './components/quiz/quiz.component';
-import { ScoreComponent } from './components/score/score/score.component';
+import { ScoreComponent } from './components/score/score.component';
 
 @NgModule({
   declarations: [
