@@ -1,19 +1,11 @@
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
-  }
-  
-  .quiz-container {
+.quiz-container {
     text-align: center;
   }
   
-  ul {
+ul {
     list-style-type: none;
     padding: 0; 
-  }
+}
 
 .result-container {
     display: flex;
@@ -22,7 +14,7 @@
     height: 100vh;
   }
   
-  .result-content {
+.result-content {
     text-align: center; 
     
-  }
+}
