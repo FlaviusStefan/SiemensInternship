@@ -21,9 +21,25 @@ export class QuizComponent implements OnInit {
 
   loadQuestions() {
     this.quizService.getQuestions().subscribe((data) => {
-      this.questions = data;
+      this.questions = this.shuffle(data); 
       this.displayNextQuestion(); 
     });
+  }
+
+  shuffle(array: any[]) {
+    let currentIndex = array.length;
+    let temporaryValue, randomIndex;
+
+    while (currentIndex !== 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+
+    return array;
   }
 
   displayNextQuestion() {
@@ -31,7 +47,7 @@ export class QuizComponent implements OnInit {
       this.currentQuestion = this.questions[this.currentQuestionIndex];
       this.currentQuestionIndex++;
     } else {
-      this.currentQuestion = null;
+      this.currentQuestion = null; 
     }
   }
 
@@ -41,12 +57,15 @@ export class QuizComponent implements OnInit {
     if (this.selectedOption === this.currentQuestion.answer) {
       this.userScore++; 
     }
+
+    this.displayNextQuestion(); 
+    this.selectedOption = null; 
   }
 
   getNextQuestion() {
-    this.currentQuestionIndex++;
     if (this.currentQuestionIndex < this.questions.length) {
       this.currentQuestion = this.questions[this.currentQuestionIndex];
+      this.currentQuestionIndex++;
     } else {
       this.currentQuestion = null; 
     }
