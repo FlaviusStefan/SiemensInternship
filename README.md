@@ -71,4 +71,8 @@ This repository houses a web-based quiz application developed using Angular. The
 
 **!! In this scenario, the score itself doesn't have a relationship with other entities in the same sense as the user progress or questions. The score is an aggregation derived from the user's progress and correct answers. However, if the score were to be stored in a separate table or entity, it could potentially have a relationship with the user or user progress, but typically, it's computed based on user progress and not stored independently. !!**
 
+### Workflow of the program
+
+The questions are linked to multiple options, allowing users to select their answers. Each user's progress involves attempts at answering questions. This relationship captures the specific user choices and correctness for each question attempted. This comprehensive data flow ensures a robust record of user interaction with each question throughout the quiz.
+
 
