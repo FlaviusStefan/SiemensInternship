@@ -7,7 +7,7 @@ import { Observable, of } from 'rxjs';
 })
 export class QuizService {
 
-  private questionsUrl = 'services/questions.json';
+  private questionsUrl = 'assets/questions.json';
 
   constructor(private http: HttpClient) { }
 

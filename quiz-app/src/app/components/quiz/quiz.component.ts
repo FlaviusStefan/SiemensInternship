@@ -7,8 +7,8 @@ import { QuizService } from 'src/app/services/quiz.service';
   styleUrls: ['./quiz.component.css']
 })
 export class QuizComponent implements OnInit {
-  
   questions: any[] = [];
+  currentQuestionIndex: number = 0;
   currentQuestion: any; 
   selectedOption: number | null = null;
   userScore: number = 0;
@@ -22,28 +22,38 @@ export class QuizComponent implements OnInit {
   loadQuestions() {
     this.quizService.getQuestions().subscribe((data) => {
       this.questions = data;
-      this.getNextQuestion(); 
+      this.displayNextQuestion(); 
     });
   }
 
-  getNextQuestion() {
-    
-    this.currentQuestion = this.questions[0]; 
+  displayNextQuestion() {
+    if (this.currentQuestionIndex < this.questions.length) {
+      this.currentQuestion = this.questions[this.currentQuestionIndex];
+      this.currentQuestionIndex++;
+    } else {
+      this.currentQuestion = null;
+    }
   }
 
   selectAnswer(selectedIndex: number) {
     this.selectedOption = selectedIndex; 
 
-    
     if (this.selectedOption === this.currentQuestion.answer) {
-      
       this.userScore++; 
     }
 
-    
     setTimeout(() => {
-      this.getNextQuestion();
+      this.displayNextQuestion();
       this.selectedOption = null; 
     }, 1000);
+  }
+
+  getNextQuestion() {
+    this.currentQuestionIndex++;
+    if (this.currentQuestionIndex < this.questions.length) {
+      this.currentQuestion = this.questions[this.currentQuestionIndex];
+    } else {
+      this.currentQuestion = null; 
+    }
   }
 }
