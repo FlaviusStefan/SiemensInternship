@@ -41,11 +41,6 @@ export class QuizComponent implements OnInit {
     if (this.selectedOption === this.currentQuestion.answer) {
       this.userScore++; 
     }
-
-    setTimeout(() => {
-      this.displayNextQuestion();
-      this.selectedOption = null; 
-    }, 1000);
   }
 
   getNextQuestion() {
