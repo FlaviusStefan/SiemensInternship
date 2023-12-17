@@ -12,6 +12,7 @@ export class QuizComponent implements OnInit {
   currentQuestion: any; 
   selectedOption: number | null = null;
   userScore: number = 0;
+  totalScore: number | null = null;
 
   constructor(private quizService: QuizService) { }
 

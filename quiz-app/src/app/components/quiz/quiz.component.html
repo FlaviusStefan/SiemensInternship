@@ -17,5 +17,11 @@
 </div>
 
 <div *ngIf="!currentQuestion">
-  <p>No more questions!</p>
+  <div *ngIf="userScore !== questions.length">
+    <p>Congratulations, you finished! You got {{userScore}} correct answers out of {{questions.length}}.</p>
+  </div>
+  <div *ngIf="userScore !== null">
+    <p>The percentage of correct answers is {{ (userScore / questions.length) * 100 }}%.</p>
+    <p>Thank you for participating in the quiz!</p>
+  </div>
 </div>
