@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
@@ -6,16 +7,11 @@ import { Observable, of } from 'rxjs';
 })
 export class QuizService {
 
-  private questions = [
-    {
-      id: 1,
-      question: 'What is the capital of France?',
-      options: ['Berlin', 'Madrid', 'Paris', 'Rome'],
-      answer: 2, 
-    },
-  ];
+  private questionsUrl = 'assets/questions.json';
+
+  constructor(private http: HttpClient) { }
 
   getQuestions(): Observable<any[]> {
-    return of(this.questions);
+    return this.http.get<any[]>(this.questionsUrl);
   }
 }
