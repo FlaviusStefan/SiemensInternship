@@ -63,12 +63,4 @@ export class QuizComponent implements OnInit {
     this.selectedOption = null; 
   }
 
-  getNextQuestion() {
-    if (this.currentQuestionIndex < this.questions.length) {
-      this.currentQuestion = this.questions[this.currentQuestionIndex];
-      this.currentQuestionIndex++;
-    } else {
-      this.currentQuestion = null; 
-    }
-  }
 }
