@@ -1,6 +1,6 @@
-<div *ngIf="questions.length > 0 && currentQuestion">
+<div class="quiz-container" *ngIf="questions.length > 0 && currentQuestion">
   <h2>Question {{ currentQuestionIndex }} of {{ questions.length }}:</h2>
-  <h3>Score: {{ userScore }}</h3> <!-- Score Tracker -->
+  <h3>Score: {{ userScore }}</h3> 
   <p>{{ currentQuestion?.question }}</p>
 
   <h3>Options:</h3>
