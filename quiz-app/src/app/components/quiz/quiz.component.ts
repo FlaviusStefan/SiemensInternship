@@ -7,8 +7,11 @@ import { QuizService } from 'src/app/services/quiz.service';
   styleUrls: ['./quiz.component.css']
 })
 export class QuizComponent implements OnInit {
+  
   questions: any[] = [];
-  currentQuestion: any; // Define currentQuestion property
+  currentQuestion: any; 
+  selectedOption: number | null = null;
+  userScore: number = 0;
 
   constructor(private quizService: QuizService) { }
 
@@ -29,6 +32,18 @@ export class QuizComponent implements OnInit {
   }
 
   selectAnswer(selectedIndex: number) {
+    this.selectedOption = selectedIndex; 
+
     
+    if (this.selectedOption === this.currentQuestion.answer) {
+      
+      this.userScore++; 
+    }
+
+    
+    setTimeout(() => {
+      this.getNextQuestion();
+      this.selectedOption = null; 
+    }, 1000);
   }
 }
